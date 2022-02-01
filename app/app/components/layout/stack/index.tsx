@@ -15,7 +15,7 @@ const index: React.FC<Props> = (props) => {
     base: css`
       display: flex;
       flex-direction: ${props.direction ? props.direction : 'column'};
-      gap: ${props.spacing ? `${props.spacing * .25}rem` : ''};
+      gap: ${props.spacing ? `${props.spacing * .25}rem` : '.5rem'};
     `
   }
 
