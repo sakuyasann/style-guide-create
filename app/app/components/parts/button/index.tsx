@@ -4,7 +4,7 @@ import { IconType } from 'react-icons';
 
 type Props = {
   isShadow?: boolean
-  leftIcon?: IconType
+  LeftIcon?: JSX.Element
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   color?: 'purple' | 'blue'
 }
@@ -13,7 +13,7 @@ const Button: React.FC<Props> = (props) => {
   const {
     isShadow,
     children,
-    leftIcon,
+    LeftIcon,
     onClick,
     color
   } = props
@@ -28,7 +28,7 @@ const Button: React.FC<Props> = (props) => {
         ]}
         onClick={onClick}
       >
-        {leftIcon ? <span css={[buttonStyle.leftIcon]}>{leftIcon}</span> : ''}
+        {LeftIcon ? <span css={[buttonStyle.leftIcon]}>{LeftIcon}</span> : ''}
         {children}
       </button>
     </>
