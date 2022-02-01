@@ -4,29 +4,31 @@ import { layerType } from '~/types/ecsgDataType';
 
 type Props = {
   type: layerType
+  size?: string|number
 }
 
 const Icon: React.FC<Props> = (props) => {
   const {
-    type
+    type,
+    size
   } = props
 
   const Item = () => {
     switch (type) {
       case 'description':
-        return <RiArticleFill />
+        return <RiArticleFill size={size} />
 
       case 'colorPallete':
-        return <RiPaletteFill />
+        return <RiPaletteFill size={size} />
 
       case 'fontfamily':
-        return <RiInputMethodFill />
+        return <RiInputMethodFill size={size} />
 
       case 'typography':
-        return <RiFontSize2 />
+        return <RiFontSize2 size={size} />
 
       default:
-        return <RiFileList2Fill />
+        return <RiFileList2Fill size={size} />
     }
   }
 
