@@ -1,5 +1,5 @@
 import React from 'react';
-import { RiArticleFill, RiFileList2Fill, RiInputMethodLine, RiPaletteLine } from 'react-icons/ri';
+import { RiArticleFill, RiFileList2Fill, RiFontSize2, RiInputMethodFill, RiPaletteFill } from 'react-icons/ri';
 import { layerType } from '~/types/ecsgDataType';
 
 type Props = {
@@ -17,13 +17,13 @@ const Icon: React.FC<Props> = (props) => {
         return <RiArticleFill />
 
       case 'colorPallete':
-        return <RiPaletteLine />
+        return <RiPaletteFill />
 
       case 'fontfamily':
-        return <RiInputMethodLine />
+        return <RiInputMethodFill />
 
       case 'typography':
-        return <RiInputMethodLine />
+        return <RiFontSize2 />
 
       default:
         return <RiFileList2Fill />
