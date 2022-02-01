@@ -6,7 +6,7 @@ type Props = {
   isShadow?: boolean
   LeftIcon?: JSX.Element
   onClick?: React.MouseEventHandler<HTMLButtonElement>
-  color?: 'purple' | 'blue'
+  color?: 'purple' | 'blue' | 'gray'
 }
 
 const Button: React.FC<Props> = (props) => {
@@ -54,6 +54,9 @@ const buttonStyle = {
     box-shadow: rgba(74, 85, 104, 5%) 0px 5px 15px, rgba(74, 85, 104, 3%) 0px 4px 6px;
   `,
   color: {
+    gray: css`
+      background-color: var(--color-gray-100);
+    `,
     blue: css`
       background-color: var(--color-blue-500);
       color: #fff;

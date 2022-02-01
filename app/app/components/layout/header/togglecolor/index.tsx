@@ -10,7 +10,7 @@ const ToggleColorButton = () => {
   return (
     <>
       {/* @jsx jsx */}
-      <Button onClick={toggleColorMode}>
+      <Button onClick={toggleColorMode} color='gray'>
         {colorMode === 'dark' ? <RiSunFill /> : <RiMoonFill />}
       </Button>
     </>

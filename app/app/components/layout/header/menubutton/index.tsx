@@ -6,7 +6,7 @@ import { Button, Popper } from '~/components/parts';
 const Menu = () => {
   const TriggerButton = () => {
     return (
-      <Button><RiMore2Fill /></Button>
+      <Button color='gray'><RiMore2Fill /></Button>
     )
   }
 
