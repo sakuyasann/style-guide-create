@@ -1,6 +1,5 @@
 import { css, jsx } from '@emotion/react';
-import { RiMoonFill, RiMore2Fill, RiSave2Line, RiSunFill } from 'react-icons/ri';
-import { Button, Logo, Spacer } from '~/components/parts';
+import { Logo, Spacer } from '~/components/parts';
 import { Stack } from '..';
 import Menu from './menubutton';
 import ShareButton from './sharebutton';
@@ -33,6 +32,7 @@ const styles = {
   header: css`
     padding: .75rem 3rem;
     border-bottom: 1px solid var(--border-color);
+    background-color: #fff;
   `,
   inner: css`
     display: flex;
