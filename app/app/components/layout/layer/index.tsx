@@ -27,7 +27,7 @@ const Layer = () => {
                 onClick={() => setActive(data)}
               >
                 <div css={styles.menu.icon}><Icon type={data} size={20} /></div>
-                <p css={styles.menu.text}>{data}</p>
+                <p css={styles.menu.text}>{data.toUpperCase()}</p>
               </li>
             )
           })}
@@ -67,6 +67,7 @@ const styles = {
     `,
     text: css`
       flex: 1 1 auto;
+      font-size: 15px;
     `
   }
 }
