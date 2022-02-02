@@ -61,6 +61,13 @@ const ColorList: React.FC<Props> = (props) => {
     })
   }
 
+  const onDelete = () => {
+    setOriginalData({
+      order: originalData.order.filter(f => f !== selectId),
+      colors: originalData.colors.filter(f => f.id !== selectId)
+    })
+  }
+
   return (
     <>
       {/* @jsx jsx */}
@@ -85,7 +92,7 @@ const ColorList: React.FC<Props> = (props) => {
                 }}
               />
             </p>
-            <button css={styles.iconButton}><RiDeleteBinFill /></button>
+            <button css={styles.iconButton} onClick={onDelete}><RiDeleteBinFill /></button>
             <button css={styles.iconButton}><RiDiscussFill /></button>
           </div>
           <div css={styles.theme.wrap}>
