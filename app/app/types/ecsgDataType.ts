@@ -25,13 +25,15 @@ export type colorPalletType = {
   colors: colorsType[]
 } & commonType
 
-type colorsType = {
+export type colorsType = {
   id: string
   title: string
   comment: string
+  theme: 'single' | 'multiple'
   order: string[]
   data: {
     id: string
+    title: string
     darkColor: string
     lightColor: string
     comment: string
