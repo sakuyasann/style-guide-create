@@ -1,7 +1,7 @@
 import { css, jsx } from '@emotion/react';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { ColorpalletState, SelectedState } from '~/atoms';
+import { SelectedState } from '~/atoms';
 import ColorPaletteTool from './colorPalette';
 import DescriptionTool from './description';
 import FontfamilyTool from './fontfamily';
@@ -46,5 +46,6 @@ const styles = {
     height: 100%;
     background-color: var(--background-base);
     border-right: 1px solid var(--border-color);
+    overflow: auto;
   `
 }

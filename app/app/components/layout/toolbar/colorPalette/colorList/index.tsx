@@ -1,7 +1,7 @@
 import { css, jsx } from '@emotion/react';
-import React, { useEffect, useState } from 'react';
-import { RiContrastDropFill, RiDiscussFill, RiDropFill } from 'react-icons/ri';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import React, { useEffect, useRef, useState } from 'react';
+import { RiContrastDropFill, RiDeleteBinFill, RiDiscussFill, RiDropFill } from 'react-icons/ri';
+import { useRecoilState } from 'recoil';
 import { v4 } from 'uuid'
 import { ColorpalletState } from '~/atoms';
 import { Stack } from '~/components/layout';
@@ -22,6 +22,7 @@ const ColorList: React.FC<Props> = (props) => {
 
   const [originalData, setOriginalData] = useRecoilState(ColorpalletState)
   const [colorData, setColorData] = useState<colorsType>()
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     setColorData(colors.find(f => f.id === selectId))
@@ -66,7 +67,25 @@ const ColorList: React.FC<Props> = (props) => {
       <Section title="Color List">
         <div>
           <div css={styles.heading}>
-            <p css={styles.title}>{colorData.title}</p>
+            <p css={styles.title}>
+              <input
+                type="text"
+                defaultValue={colorData.title}
+                ref={inputRef}
+                onBlur={e => {
+                  if (e.target.value.length === 0) {
+                    if (inputRef.current) {
+                      inputRef.current.value = colorData.title
+                    }
+                  }
+                  setColorData({
+                    ...colorData,
+                    title: e.target.value.length > 0 ? e.target.value : colorData.title
+                  })
+                }}
+              />
+            </p>
+            <button css={styles.iconButton}><RiDeleteBinFill /></button>
             <button css={styles.iconButton}><RiDiscussFill /></button>
           </div>
           <div css={styles.theme.wrap}>
@@ -118,6 +137,7 @@ const styles = {
   heading: css`
     display: flex;
     align-items: center;
+    gap: .5rem;
     padding: 0 1rem;
     color: var(--font-color-400);
   `,
@@ -128,6 +148,10 @@ const styles = {
     flex: 1 1 auto;
     font-size: 14px;
     font-weight: 500;
+
+    input {
+      outline: none;
+    }
   `,
   theme: {
     wrap: css`
