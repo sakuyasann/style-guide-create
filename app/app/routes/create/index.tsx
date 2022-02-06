@@ -2,7 +2,7 @@ import { css, jsx } from '@emotion/react';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { SelectedState } from '~/atoms';
-import { Header, Layer, Toolbar } from '~/components/layout';
+import { Canvas, Header, Layer, Toolbar } from '~/components/layout';
 
 const Index = () => {
   const selected = useRecoilValue(SelectedState)
@@ -31,7 +31,9 @@ const Index = () => {
           }}>
             {selected && <Toolbar />}
           </div>
-          <div css={styles.canvas}></div>
+          <div css={styles.canvas}>
+            <Canvas />
+          </div>
         </div>
       </Fragment>
     </>

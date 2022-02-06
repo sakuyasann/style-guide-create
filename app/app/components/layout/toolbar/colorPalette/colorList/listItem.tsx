@@ -1,9 +1,12 @@
 import { css, jsx } from '@emotion/react';
 import React, { useEffect, useState } from 'react';
 import { RiDiscussFill } from 'react-icons/ri';
+import { useRecoilState } from 'recoil';
+import { ColorpalletState } from '~/atoms';
 import { Stack } from '~/components/layout';
 
 type Props = {
+  selectId: string
   data: {
     id: string;
     title: string;
@@ -15,14 +18,45 @@ type Props = {
 
 const ListItem: React.FC<Props> = (props) => {
   const {
+    selectId,
     data
   } = props
+
+  const [originalData, setOriginalData] = useRecoilState(ColorpalletState)
 
   const [color, setColor] = useState(data.lightColor)
   const [name, setName] = useState(data.title)
 
-  useEffect(() => {
 
+
+  useEffect(() => {
+    console.log('originalData', originalData)
+
+    const newData = originalData.colors.map(dt => {
+      if (dt.id === selectId) {
+        return {
+          ...dt,
+          data: dt.data.map(e => {
+            if (e.id === data.id) {
+              return {
+                ...e,
+                title: name,
+                lightColor: color,
+                darkColor: color
+              }
+            }
+            return e
+          })
+        }
+      }
+
+      return dt
+    })
+
+    setOriginalData({
+      ...originalData,
+      colors: newData
+    })
   }, [name, color])
 
   return (
@@ -69,7 +103,7 @@ const ListItem: React.FC<Props> = (props) => {
           </div>
           
         </Stack>
-        {color.length === 0 && <p css={styles.placeText}>Please enter a color code in the form HEX or RGB or HSL</p>}
+        {color.length === 0 && <p css={styles.placeText}>Please enter a color code in the form HEX</p>}
       </li>
     </>
   );

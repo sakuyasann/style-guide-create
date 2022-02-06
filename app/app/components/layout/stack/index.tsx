@@ -1,13 +1,15 @@
-import { css, jsx } from '@emotion/react';
+import { css, Interpolation, jsx, Theme } from '@emotion/react';
 import React from 'react';
 
 type Props = {
   spacing?: number
   direction?: 'row' | 'column'
+  style?: Interpolation<Theme>
 }
 
 const index: React.FC<Props> = (props) => {
   const {
+    style,
     children
   } = props
 
@@ -22,7 +24,7 @@ const index: React.FC<Props> = (props) => {
   return (
     <>
       {/* @jsx jsx */}
-      <div css={styles.base}>{children}</div>
+      <div css={[styles.base, style]}>{children}</div>
     </>
   );
 };

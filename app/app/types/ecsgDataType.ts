@@ -31,13 +31,15 @@ export type colorsType = {
   comment: string
   theme: 'single' | 'multiple'
   order: string[]
-  data: {
-    id: string
-    title: string
-    darkColor: string
-    lightColor: string
-    comment: string
-  }[]
+  data: colorData[]
+}
+
+export type colorData = {
+  id: string
+  title: string
+  darkColor: string
+  lightColor: string
+  comment: string
 }
 
 // 

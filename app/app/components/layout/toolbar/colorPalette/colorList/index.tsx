@@ -127,7 +127,7 @@ const ColorList: React.FC<Props> = (props) => {
           <ul>
             {colorData.data.map(data => {
               return (
-                <ListItem data={data} />
+                <ListItem data={data} selectId={selectId} />
               )
             })}
           </ul>
